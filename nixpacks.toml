@@ -1,11 +1,11 @@
-# nixpacks.toml
 [phases.setup]
-# Install ONLY gcc, not gfortran separately
-# gcc includes gfortran components
-nixPkgs = ["python311", "ta-lib"]
+nixPkgs = ["python311", "ta-lib"]  # Only what you absolutely need
 
 [phases.install]
-cmds = ["pip install --upgrade pip setuptools wheel", "pip install -r requirements.txt"]
+cmds = [
+    "pip install --upgrade pip setuptools wheel",
+    "pip install -r requirements.txt"
+]
 
 [start]
 cmd = "gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120 app:app"
