@@ -5,13 +5,16 @@ Flask==3.0.0
 gunicorn==21.2.0
 
 # ========== DATA PROCESSING (PURE PYTHON) ==========
-# REMOVE TA-Lib - use these alternatives instead
-numpy==1.24.3  # Can use latest version again
+numpy==1.24.3
 pandas==2.1.4
 ta==0.10.2  # Main TA library - 200+ indicators
-pandas-ta==0.3.14b0  # Additional TA indicators
-yfinance==0.2.32  # For market data
+yfinance==0.2.32
 
 # ========== APIs & UTILITIES ==========
 requests==2.31.0
 python-dotenv==1.0.0
+
+# ========== OPTIONAL: ADD THESE IF NEEDED ==========
+# scipy==1.11.4  # For advanced statistics
+# vectorbt>=0.25.5,<0.27  # For backtesting
+# squarequant==0.2.3  # If you need it
