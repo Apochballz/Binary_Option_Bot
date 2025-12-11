@@ -1,25 +1,37 @@
 # Dockerfile
 FROM python:3.11-slim
 
-# Install TA-Lib system dependencies
+# ========== STEP 1: INSTALL SYSTEM DEPENDENCIES ==========
+# Install TA-Lib C library and build tools
 RUN apt-get update && apt-get install -y \
     wget \
-    build-essential \
-    && wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz \
+    gcc \
+    g++ \
+    make \
+    && wget -O ta-lib-0.4.0-src.tar.gz http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz \
     && tar -xzf ta-lib-0.4.0-src.tar.gz \
     && cd ta-lib/ \
     && ./configure --prefix=/usr \
     && make \
     && make install \
-    && rm -rf /var/lib/apt/lists/* ta-lib*
+    && cd .. \
+    && rm -rf ta-lib-0.4.0-src.tar.gz ta-lib/ \
+    && rm -rf /var/lib/apt/lists/*
 
+# ========== STEP 2: SET UP WORKING DIRECTORY ==========
 WORKDIR /app
 
-# Copy requirements and install
+# ========== STEP 3: INSTALL PYTHON DEPENDENCIES ==========
+# Copy requirements first (better caching)
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy app code
+# Install Python packages with compatible numpy version
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+# ========== STEP 4: COPY APPLICATION CODE ==========
 COPY . .
 
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "app:app"]
+# ========== STEP 5: RUN APPLICATION ==========
+# Use $PORT environment variable (Railway provides this)
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--workers", "2", "app:app"]
