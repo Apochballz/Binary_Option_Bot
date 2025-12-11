@@ -1,0 +1,29 @@
+# Core Web Framework
+Flask==3.0.0
+flask-cors==4.0.0
+gunicorn==21.2.0
+
+# Data Processing & Analysis
+numpy==1.24.3
+pandas==2.1.4
+TA-Lib==0.4.28
+
+# APIs & Data Sources
+requests==2.31.0
+yfinance==0.2.32
+
+# Quantitative Analysis
+vectorbt==0.26.2
+squarequant==0.1.5
+
+# Date & Time
+pytz==2023.3
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Async Operations
+aiohttp==3.9.1
+
+# Web Server
+Werkzeug==3.0.1
