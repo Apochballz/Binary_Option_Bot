@@ -1,24 +1,11 @@
-# Nixpacks configuration for Railway
-# Handles system dependencies like TA-Lib
-
+# nixpacks.toml
 [phases.setup]
-nixPkgs = [
-    "python311",
-    "gcc",
-    "gfortran",
-    "openblas",
-    "lapack",
-    "ta-lib"
-]
+# Install ONLY gcc, not gfortran separately
+# gcc includes gfortran components
+nixPkgs = ["python311", "ta-lib"]
 
 [phases.install]
-cmds = [
-    "pip install --upgrade pip setuptools wheel",
-    "pip install -r requirements.txt"
-]
+cmds = ["pip install --upgrade pip setuptools wheel", "pip install -r requirements.txt"]
 
 [start]
 cmd = "gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120 app:app"
-
-[variables]
-PYTHON_VERSION = "3.11"
