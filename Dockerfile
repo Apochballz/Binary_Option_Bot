@@ -2,7 +2,7 @@
 FROM python:3.11-slim
 
 # ========== STEP 1: INSTALL SYSTEM DEPENDENCIES ==========
-# Install TA-Lib C library and build tools
+# Install TA-Lib C library version 0.4.0 (matches Python wrapper)
 RUN apt-get update && apt-get install -y \
     wget \
     gcc \
@@ -22,16 +22,18 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # ========== STEP 3: INSTALL PYTHON DEPENDENCIES ==========
-# Copy requirements first (better caching)
+# Copy requirements first
 COPY requirements.txt .
 
-# Install Python packages with compatible numpy version
+# Install from TA-Lib's official PyPI mirror FIRST
 RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir \
+        --extra-index-url=https://pypi.ta-lib.org/simple \
+        TA-Lib==0.4.28 \
     && pip install --no-cache-dir -r requirements.txt
 
 # ========== STEP 4: COPY APPLICATION CODE ==========
 COPY . .
 
 # ========== STEP 5: RUN APPLICATION ==========
-# Use $PORT environment variable (Railway provides this)
 CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--workers", "2", "app:app"]
