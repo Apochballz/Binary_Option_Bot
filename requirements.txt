@@ -4,15 +4,14 @@
 Flask==3.0.0
 gunicorn==21.2.0
 
-# ========== DATA PROCESSING ==========
-# REMOVE TA-Lib from here - it's installed separately in Dockerfile
-numpy==1.23.5
+# ========== DATA PROCESSING (PURE PYTHON) ==========
+# REMOVE TA-Lib - use these alternatives instead
+numpy==1.24.3  # Can use latest version again
 pandas==2.1.4
-# TA-Lib==0.4.28  <-- REMOVE THIS LINE
+ta==0.10.2  # Main TA library - 200+ indicators
+pandas-ta==0.3.14b0  # Additional TA indicators
+yfinance==0.2.32  # For market data
 
 # ========== APIs & UTILITIES ==========
 requests==2.31.0
 python-dotenv==1.0.0
-
-# ========== BACKUP: PURE-PYTHON ALTERNATIVE ==========
-ta==0.10.2  # Keep as backup
