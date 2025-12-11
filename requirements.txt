@@ -1,20 +1,8 @@
-# requirements.txt
-
-# ========== CORE WEB FRAMEWORK ==========
 Flask==3.0.0
 gunicorn==21.2.0
-
-# ========== DATA PROCESSING (PURE PYTHON) ==========
 numpy==1.24.3
 pandas==2.1.4
-ta==0.10.2  # Main TA library - 200+ indicators
+ta==0.10.2
 yfinance==0.2.32
-
-# ========== APIs & UTILITIES ==========
 requests==2.31.0
 python-dotenv==1.0.0
-
-# ========== OPTIONAL: ADD THESE IF NEEDED ==========
-# scipy==1.11.4  # For advanced statistics
-# vectorbt>=0.25.5,<0.27  # For backtesting
-# squarequant==0.2.3  # If you need it
