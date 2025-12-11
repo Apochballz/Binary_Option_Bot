@@ -11,4 +11,5 @@ RUN pip install --no-cache-dir --upgrade pip \
 # Copy application code
 COPY . .
 
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--workers", "2", "app:app"]
+# Use shell form to expand $PORT environment variable
+CMD gunicorn --bind 0.0.0.0:$PORT --workers 2 app:app
