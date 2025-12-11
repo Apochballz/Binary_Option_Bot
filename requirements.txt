@@ -1,24 +1,8 @@
-# HEAVY PACKAGES FIRST (memory-intensive)
+# MINIMAL WORKING VERSION
+Flask==3.0.0
+gunicorn==21.2.0
 numpy==1.24.3
 pandas==2.1.4
-scipy==1.11.4
 TA-Lib==0.4.28
-
-# Core Web Framework
-Flask==3.0.0
-flask-cors==4.0.0
-gunicorn==21.2.0
-Werkzeug==3.0.1
-
-# Lightweight packages
 requests==2.31.0
 python-dotenv==1.0.0
-pytz==2023.3
-ta==0.10.2
-
-# Optional/Heavy packages (install last)
-yfinance==0.2.32
-aiohttp==3.9.1
-openai==1.3.0
-vectorbt>=0.25.5,<0.27
-squarequant==0.2.3
