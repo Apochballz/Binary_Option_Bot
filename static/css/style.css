@@ -1,0 +1,382 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.status-item {
+    background: rgba(255,255,255,0.1);
+    padding: 15px 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.status-item strong {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.status-item span {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.status-live {
+    color: #4ade80;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Pairs Selector */
+.pairs-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.pair-btn {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid transparent;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.pair-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+}
+
+.pair-btn.active {
+    background: rgba(255,255,255,0.3);
+    border-color: #4ade80;
+}
+
+/* Signals Container */
+.signals-container {
+    margin-top: 30px;
+}
+
+.signal-card {
+    background: rgba(255,255,255,0.95);
+    color: #1f2937;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.signal-pair {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.signal-confidence {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.signal-direction {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.signal-direction.call {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.signal-direction.put {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.metric-box {
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.metric-box strong {
+    display: block;
+    color: #6b7280;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.metric-box span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+/* Timing Info */
+.timing-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 15px;
+    background: #fef3c7;
+    border-radius: 10px;
+    border: 2px solid #fbbf24;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.timing-info > div {
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+}
+
+.timing-info strong {
+    display: block;
+    color: #92400e;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.timing-info span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #78350f;
+}
+
+.countdown {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+/* AI Insight Box */
+.ai-insight-box {
+    margin-top: 15px;
+    padding: 15px;
+    background: #eff6ff;
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+}
+
+.ai-insight-box strong {
+    color: #1e40af;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ai-insight-box span {
+    color: #1e3a8a;
+}
+
+/* No Signals State */
+.no-signals {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.2rem;
+}
+
+.no-signals h2 {
+    margin-bottom: 10px;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.5rem;
+}
+
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Refresh Button */
+.refresh-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.refresh-btn:hover {
+    transform: scale(1.1);
+}
+
+.refresh-btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .status-bar {
+        gap: 15px;
+    }
+    
+    .status-item {
+        padding: 10px 15px;
+    }
+    
+    .signal-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .pairs-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timing-info {
+        flex-direction: column;
+    }
+    
+    .refresh-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .signal-card {
+        padding: 20px;
+    }
+    
+    .signal-direction {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+    
+    .pairs-selector {
+        gap: 10px;
+    }
+    
+    .pair-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
