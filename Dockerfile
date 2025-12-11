@@ -1,11 +1,6 @@
 # Dockerfile
 FROM python:3.11-slim
 
-# No TA-Lib system dependencies needed!
-# Just update apt-get for security
-RUN apt-get update && apt-get upgrade -y \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
 # Copy requirements and install
