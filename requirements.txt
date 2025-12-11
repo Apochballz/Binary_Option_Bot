@@ -4,17 +4,15 @@
 Flask==3.0.0
 gunicorn==21.2.0
 
-# ========== DATA PROCESSING (COMPATIBLE VERSIONS) ==========
-# CRITICAL: numpy 1.23.5 works with TA-Lib
+# ========== DATA PROCESSING ==========
+# REMOVE TA-Lib from here - it's installed separately in Dockerfile
 numpy==1.23.5
 pandas==2.1.4
-TA-Lib==0.4.28
+# TA-Lib==0.4.28  <-- REMOVE THIS LINE
 
 # ========== APIs & UTILITIES ==========
 requests==2.31.0
 python-dotenv==1.0.0
 
-# ========== OPTIONAL: PURE-PYTHON ALTERNATIVES ==========
-# Uncomment these if TA-Lib still fails
-# ta==0.10.2
-# pandas-ta==0.3.14b0
+# ========== BACKUP: PURE-PYTHON ALTERNATIVE ==========
+ta==0.10.2  # Keep as backup
