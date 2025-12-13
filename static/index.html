@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📡 Binary Options AI Signals</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📡 Binary Options AI Signal Dashboard</h1>
+            <div class="status-bar">
+                <div class="status-item">
+                    <strong>Market Status</strong>
+                    <span class="status-live" id="marketStatus">● LIVE</span>
+                </div>
+                <div class="status-item">
+                    <strong>Your Local Time</strong>
+                    <span id="localTime">--:--:--</span>
+                </div>
+                <div class="status-item">
+                    <strong>UTC Time</strong>
+                    <span id="utcTime">--:--:--</span>
+                </div>
+                <div class="status-item">
+                    <strong>Session</strong>
+                    <span id="tradingSession">LOADING</span>
+                </div>
+                <div class="status-item">
+                    <strong>Win Rate</strong>
+                    <span id="winRate">--</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="pairs-selector" id="pairsSelector">
+            <!-- Pairs will be dynamically loaded -->
+        </div>
+
+        <div class="signals-container" id="signalsContainer">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading signals...</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="refresh-btn" onclick="loadSignals()" title="Refresh Signals">
+        🔄
+    </button>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
