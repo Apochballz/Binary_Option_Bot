@@ -913,3 +913,4 @@ if __name__ == "__main__":
     log.info("Starting Binary Option Bot API on port %s", port)
     # Use debug=False in production
     app.run(host="0.0.0.0", port=port, debug=False)
+
