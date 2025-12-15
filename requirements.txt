@@ -1,65 +1,59 @@
 # ==============================
-# Core Runtime
+# Core
 # ==============================
 python-dotenv==1.0.1
 setuptools>=68.0.0
 wheel
 
 # ==============================
-# Web Server / API
+# Web Server
 # ==============================
 flask==3.0.0
 gunicorn==21.2.0
 werkzeug==3.0.1
 
 # ==============================
-# Scheduling / Concurrency
+# Scheduling
 # ==============================
 apscheduler==3.10.4
 
 # ==============================
-# Data Science Stack (PINNED)
+# Data Science (SLIM)
 # ==============================
 numpy<2.0
 pandas<2.2
 scipy<1.12
 
 # ==============================
-# Trading / Backtesting
+# Trading
 # ==============================
 vectorbt==0.26.1
 
 # ==============================
-# Visualization (VectorBT dependency)
+# Plotting (VectorBT dependency)
 # ==============================
 plotly==5.18.0
 kaleido==0.2.1
 
 # ==============================
-# Machine Learning
+# Machine Learning (LIGHTWEIGHT)
 # ==============================
 scikit-learn==1.3.2
 joblib==1.3.2
 
 # ==============================
-# Deep Learning (optional, CPU-safe)
-# ==============================
-torch==2.1.2
-torchvision==0.16.2
-
-# ==============================
-# HTTP / APIs
+# Networking
 # ==============================
 requests==2.31.0
 urllib3<2.0
 
 # ==============================
-# Telegram Bot
+# Telegram
 # ==============================
 python-telegram-bot==20.7
 
 # ==============================
-# Utilities
+# Utils
 # ==============================
 pytz==2023.3
 tqdm==4.66.1
